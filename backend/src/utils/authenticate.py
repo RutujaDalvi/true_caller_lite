@@ -1,5 +1,5 @@
-import database
+from utils.database import validateUser
 
 def authenticateUser(user):
     # connect to data base
-    return database.validateUser(user)
+    return validateUser(user)

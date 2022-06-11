@@ -1,5 +1,5 @@
 def checkIfUserPresent(user):
-    return null
+    return None
 
 def validateUser(user):
     phoneNumber = user.number
@@ -9,3 +9,6 @@ def validateUser(user):
         return True
     else:
         return False
+
+def insertUser(user):
+    return True
