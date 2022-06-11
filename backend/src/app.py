@@ -1,7 +1,7 @@
 from flask import Flask, request
-from utils.authenticate import authenticateUser
-from utils.database import checkIfUserPresent, insertUser
-from utils.misc import validateUserData
+from utils.authenticate import authenticate_user
+from utils.database import check_if_user_present, insert_user
+from utils.misc import validate_user_data
 app = Flask(__name__)
 
 @app.route('/')
@@ -12,12 +12,12 @@ def hello():
 def register():
     try:
         user = request.get_json(force=True)
-        resp = validateUserData(user)
+        resp = validate_user(user)
         if resp is not None:
             return {'error': resp, 'status': 400}
-        if checkIfUserPresent(user):
+        if check_if_user_present(user):
             return {'error': "User already exists", 'status': 400}
-        insertUser(user)
+        insert_user(user)
         return {'message': 'User Registered', 'status': 200}
     except Exception as e:
         print("Error", e)

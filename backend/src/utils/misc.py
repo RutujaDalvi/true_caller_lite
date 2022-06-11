@@ -1,4 +1,4 @@
-def validateUserData(user):
+def validate_user_data(user):
     if not 'name' in user:
         return 'Name required'
     if not 'phoneNumber' in user:
