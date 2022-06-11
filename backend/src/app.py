@@ -12,11 +12,11 @@ def hello():
 def register():
     try:
         user = request.get_json(force=True)
-        if checkIfUserPresent(user):
-            return {'error': "User already exists", 'status': 400}
         resp = validateUserData(user)
         if resp is not None:
             return {'error': resp, 'status': 400}
+        if checkIfUserPresent(user):
+            return {'error': "User already exists", 'status': 400}
         insertUser(user)
         return {'message': 'User Registered', 'status': 200}
     except Exception as e:
