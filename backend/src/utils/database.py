@@ -1,4 +1,4 @@
-def checkIfUserPresent():
+def checkIfUserPresent(user):
     return null
 
 def validateUser(user):
